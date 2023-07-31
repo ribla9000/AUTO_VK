@@ -1,6 +1,0 @@
-2023/07/31-18:35:25.791 5274 Reusing MANIFEST D:\VS\Git\AUTO_VK\user_data\_Profile Test\Local Storage\leveldb/MANIFEST-000001
-2023/07/31-18:35:25.792 5274 Recovering log #3
-2023/07/31-18:35:25.798 5274 Reusing old log D:\VS\Git\AUTO_VK\user_data\_Profile Test\Local Storage\leveldb/000003.log 
-2023/07/31-18:35:34.440 5274 Level-0 table #5: started
-2023/07/31-18:35:34.445 5274 Level-0 table #5: 48866 bytes OK
-2023/07/31-18:35:34.447 5274 Delete type=0 #3
