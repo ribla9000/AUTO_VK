@@ -1,0 +1,5 @@
+2023/07/29-23:04:39.146 56d4 Creating DB D:\VS\Git\AUTO_VK\user_data\_Profile 3\Local Storage\leveldb since it was missing.
+2023/07/29-23:04:39.164 56d4 Reusing MANIFEST D:\VS\Git\AUTO_VK\user_data\_Profile 3\Local Storage\leveldb/MANIFEST-000001
+2023/07/29-23:05:44.849 4c24 Level-0 table #5: started
+2023/07/29-23:05:44.857 4c24 Level-0 table #5: 147123 bytes OK
+2023/07/29-23:05:44.859 4c24 Delete type=0 #3

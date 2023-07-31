@@ -1,11 +1,13 @@
-from endpoints.parser import run_browser
-from endpoints.gui import run_app
+from endpoints.gui import run_choose_prof
+from endpoints.check_req import check_req
 
 
 def main():
-    run_app()
-    # parse_page()
-
+    try:
+        run_choose_prof()
+    except:
+        check_req()
+    
 
 if __name__ == '__main__':
     main()

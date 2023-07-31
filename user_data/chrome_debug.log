@@ -1,0 +1,7 @@
+[6392:5616:0731/204230.416:WARNING:chrome_main_delegate.cc(594)] This is Chrome version 115.0.5790.110 (not a warning)
+[6392:5616:0731/204230.471:INFO:chrome_browser_cloud_management_controller.cc(167)] Starting CBCM Controller Initialization
+[6392:5616:0731/204230.471:INFO:chrome_browser_cloud_management_controller.cc(195)] No machine level policy manager exists.
+[6392:5616:0731/204231.465:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Origin trial controlled feature not enabled: 'unload'.", source:  (0)
+[6392:5616:0731/204236.157:INFO:CONSOLE(2)] "[0.006]  common module enabled", source: https://st.vk.com/dist/common.5a7624cd271f6500ad29.js?32952cec0350a831a540b27 (2)
+[6392:5616:0731/204240.743:INFO:CONSOLE(1)] "The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://goo.gl/7K7WLu", source: https://vk.com/dist/d44a3dadec967cfec01768a41c432826.ca7068871bdfb90f2e14.js (1)
+[6392:5616:0731/204245.584:WARNING:pref_notifier_impl.cc(41)] Pref observer for media_router.cast_allow_all_ips found at shutdown.

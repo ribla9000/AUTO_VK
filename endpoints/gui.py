@@ -1,6 +1,5 @@
-from repository.gui import GUIRepository
+from repository.windows import GoogleProfilesWindow
 
 
-def run_app():
-    app = GUIRepository.run_app()
-    
+def run_choose_prof():
+    app = GoogleProfilesWindow.run_app()
