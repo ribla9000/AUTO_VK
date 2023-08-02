@@ -1,6 +1,7 @@
 from selenium.webdriver import ChromeOptions, Chrome
 from selenium.webdriver.chrome.service import Service
 from repository.security import set_proxy
+import platform
 from typing import Union
 import pathlib
 
@@ -15,6 +16,8 @@ def get_options(profile: str = "Profile 1", proxy: Union[bool, str] = False):
     options.add_experimental_option("excludeSwitches", ['enable-automation'])
     options.add_argument("accept-lang=ru-RU;q=0.9,en-US;q=0.8,en;q=0.7")
     # options.add_argument('disable-blink-features=AutomationControlled')
+    options.add_argument("--no-sandbox")  # bypass OS security model
+    options.add_argument("--disable-dev-shm-usage")
     options.add_argument('--allow-profiles-outside-user-dir')
     options.add_argument("--enable-save-password-bubble=false")
     options.add_argument('--enable-profile-shortcut-manager')
@@ -27,11 +30,10 @@ def get_options(profile: str = "Profile 1", proxy: Union[bool, str] = False):
 
 
 def start(profile: str = "Profile 1", proxy: bool = False):
-    try:
+    if platform.system() == "Linux":
         webdriver_service = Service("src/chromedriver")
         browser = Chrome(service=webdriver_service, options=get_options(profile, proxy))
-    except:
-        webdriver_service = Service("src/chromedriver.exe")
+    else:
         browser = Chrome(executable_path="src/chromedriver.exe", options=get_options(profile, proxy))
     browser.execute_cdp_cmd("Page.addScriptToEvaluateOnNewDocument", {
         'source': '''

@@ -3,21 +3,27 @@ import os
 
 def check_requirements():
     try:
-        os.system("pip install -r requirements.txt")
+        os.system("sudo apt install pip -y")
+        os.system("pip install -r requirements.txt -f -y")
     except:
-        os.system("pip3 install -r requirements.txt")
+        os.system("pip3 install -r requirements.txt -f -y")
     
     try:
         try:
+            os.system("sudo apt install libgl1-mesa-glx -f -y")
             os.system("sudo dpkg -i --force-depends src/google-chrome-stable_current_amd64.deb")
-            os.system("sudo apt-get install -f")
-            os.system("sudo apt install chromium-browser")
-            os.system("sudo apt update")
+            os.system("sudo apt-get install -f -y")
+            os.system("sudo apt update -y")
+            os.system("sudo apt install chromium -y")
+            os.system("sudo apt upgrade -y")
+            
         except:
+            os.system("apt install libgl1-mesa-glx -f -y")
             os.system("dpkg -i --force-depends src/google-chrome-stable_current_amd64.deb")
-            os.system("apt-get install -f")
-            os.system("apt install firefox chromium-browser")
-            os.system("apt update")
+            os.system("apt-get install -f -y")
+            os.system("apt update -y")
+            os.system("apt install chromium -y")
+            os.system("apt upgrade -y")
     
     except Exception as e:
         print(e)
