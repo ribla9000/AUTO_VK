@@ -16,6 +16,7 @@ def check_requirements():
             os.system("sudo apt update -y")
             os.system("sudo apt install chromium -y")
             os.system("sudo apt upgrade -y")
+            os.system("sudo apt --fix-broken install -y")
             
         except:
             os.system("apt install libgl1-mesa-glx -f -y")
@@ -24,6 +25,7 @@ def check_requirements():
             os.system("apt update -y")
             os.system("apt install chromium -y")
             os.system("apt upgrade -y")
+            os.system("apt --fix-broken install -y")
     
     except Exception as e:
         print(e)
