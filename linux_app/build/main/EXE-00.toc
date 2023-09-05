@@ -43,7 +43,7 @@
  [],
  False,
  False,
- 1693923534,
+ 1693932409,
  [('run',
    '/home/swag/.local/lib/python3.10/site-packages/PyInstaller/bootloader/Linux-64bit-intel/run',
    'EXECUTABLE')])

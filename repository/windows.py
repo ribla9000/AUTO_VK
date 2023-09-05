@@ -221,7 +221,7 @@ class VkFriendsWindow:
         menu["btns"][2].clicked.connect(lambda x: on_click(console="получить боксы",
                                                            label=menu["labels"][2],
                                                            label_text="ПОЛУЧЕНО!",
-                                                           callback=get_friends(browser, int(friends_value[0])),
+                                                           callback=get_friends(browser, int(friends_value[0].replace(" ", ""))),
                                                            obj=friends_box,
                                                            ))
         # get value from Qline
