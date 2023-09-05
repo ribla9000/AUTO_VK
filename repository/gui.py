@@ -86,6 +86,7 @@ class GUIRepository:
         for widget in window.children():
             widget.hide() if not isinstance(widget, QVBoxLayout) else None
 
+
 class ClickableLineEdit(QLineEdit):
     clicked = pyqtSignal()
 

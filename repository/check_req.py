@@ -3,7 +3,10 @@ import os
 
 def check_requirements():
     try:
-        os.system("sudo apt install pip -y")
+        os.system("sudo apt install python3-pip -y")
+    except:
+        pass
+    try:
         os.system("pip install -r requirements.txt -f -y")
     except:
         os.system("pip3 install -r requirements.txt -f -y")
@@ -11,6 +14,7 @@ def check_requirements():
     try:
         try:
             os.system("sudo apt install libgl1-mesa-glx -f -y")
+            os.system("sudo apt install python3-pyqt5 -y")
             os.system("sudo dpkg -i --force-depends src/google-chrome-stable_current_amd64.deb")
             os.system("sudo apt-get install -f -y")
             os.system("sudo apt update -y")
@@ -20,6 +24,7 @@ def check_requirements():
             
         except:
             os.system("apt install libgl1-mesa-glx -f -y")
+            os.system("apt install python3-pyqt5 -y")
             os.system("dpkg -i --force-depends src/google-chrome-stable_current_amd64.deb")
             os.system("apt-get install -f -y")
             os.system("apt update -y")

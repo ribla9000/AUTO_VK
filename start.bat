@@ -1,1 +1,1 @@
-start .\dist\main\main.exe
+start .\windows\dist\main\main.exe

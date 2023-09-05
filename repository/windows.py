@@ -24,7 +24,7 @@ class GoogleProfilesWindow:
         make_menu = GUIRepository.make_menu
         menu, r_btns = {}, []
         start_btn = QPushButton(window)
-        start_btn.setText("GET PROFILES")
+        start_btn.setText("ПОЛУЧИТЬ ПРОФИЛИ")
         start_btn.setStyleSheet(
             "background-color: #050505; color: #7f7f7f; font: 24px; border: 4px solid #180e33; border-radius: 9px")
         start_btn.move(400, 15)
@@ -42,17 +42,17 @@ class GoogleProfilesWindow:
     @staticmethod
     def make_btns(window: QWidget):
         choose_btn = QPushButton(window)
-        choose_btn.setText("choose profile")
+        choose_btn.setText("выбрать профиль")
         
         enter_btn = QPushButton(window)
-        enter_btn.setText("enter the action")
+        enter_btn.setText("подтвердить")
         
         btns = [choose_btn, enter_btn]
         y_pos = 35
         for btn in btns:
             if btn == btns[1]:
                 y_pos += 60
-            btn.setFixedSize(200, 50)
+            btn.setFixedSize(230, 50)
             btn.setStyleSheet("background-color: #050505; color: #7f7f7f; font: 24px; border: 4px solid #180e33; border-radius: 9px")
             btn.move(400, y_pos)
         return btns
@@ -63,7 +63,7 @@ class GoogleProfilesWindow:
     
     @staticmethod
     def make_profiles_group(window, profiles: list):
-        r_new_btn = QRadioButton(text="Make a new profile")
+        r_new_btn = QRadioButton(text="сделать профиль")
         r_new_btn.setStyleSheet("background-color: #303030;font: 20px ;color: #7f7f7f")
         r_btns = []
         r_btns.append(r_new_btn)
@@ -98,7 +98,7 @@ class GoogleProfilesWindow:
         on_click = GUIRepository.on_click
         profile = ["Profile 1"]
         menu["btns"][0].clicked.connect(lambda x: on_click(callback=GoogleProfilesWindow.get_radio(r_btns),
-                                                           console=f"Chosen profile:",
+                                                           console=f"Выбран профиль:",
                                                            callback_set=True,
                                                            obj=profile
                                                            ))
@@ -117,12 +117,12 @@ class VkLoginWindow:
     def run_app(window: Optional[QApplication], profile: Optional[list]):
         on_click = GUIRepository.on_click
         menu = GUIRepository.make_menu(window, VkLoginWindow)
-        menu["labels"][0].setText(f"Profile: {profile[0]}")
+        menu["labels"][0].setText(f"Профиль: {profile[0]}")
         
         menu["btns"][0].clicked.connect(lambda x: (browser:=run_browser(profile=profile[0]),
                                                    answer:=on_click(callback=check_login(browser),
                                                             label=menu["labels"][1],
-                                                            console="is_auth?",
+                                                            console="вошел? ",
                                                             label_text="",
                                                             callback_set=True,
                                                             ),
@@ -137,9 +137,9 @@ class VkLoginWindow:
     @staticmethod
     def make_btns(window):
         check_btn = QPushButton(window)
-        check_btn.setText("Check")
+        check_btn.setText("Проверить")
         check_btn.move(630, 5)
-        check_btn.setFixedSize(100, 50)
+        check_btn.setFixedSize(150, 50)
         check_btn.setStyleSheet("background-color: #050505; color: #7f7f7f; font: 24px; border: 4px solid #180e33; border-radius: 9px")
         
         btns = [check_btn]
@@ -166,14 +166,14 @@ class VkLoginWindow:
         lbl_login = ClickableLineEdit(window)
         lbl_login.move(0, 100)
         lbl_login.setFixedSize(300, 50)
-        lbl_login.setText("Input your login here")
+        lbl_login.setText("Введите логин здесь")
         lbl_login.setStyleSheet("background-color: #212020; color: #34574f; font: 24px bold")
         lbl_login.show()
         
         lbl_password = ClickableLineEdit(window)
         lbl_password.move(0, 160)
         lbl_password.setFixedSize(300, 50)
-        lbl_password.setText("Input your password here")
+        lbl_password.setText("Введите пароль здесь")
         lbl_password.setStyleSheet("background-color: #212020; color: #212020; font: 24px bold")
         lbl_password.show()
         
@@ -204,37 +204,37 @@ class VkFriendsWindow:
         on_click = GUIRepository.on_click
         menu = GUIRepository.make_menu(window, VkFriendsWindow)
         # get count of friends
-        menu["btns"][0].clicked.connect(lambda x: on_click(console=f"Get Count of friends",
+        menu["btns"][0].clicked.connect(lambda x: on_click(console=f"получить кол-во друзей",
                                                            callback=get_count_friends(browser),
                                                            obj=friends_value,
-                                                           label_text="Count of friends: ",
+                                                           label_text="кол-во друзей: ",
                                                            callback_set=True,
                                                            label=menu["labels"][0]
                                                            ))
         # scroll down
-        menu["btns"][1].clicked.connect(lambda x: on_click(console="Scrolling down",
+        menu["btns"][1].clicked.connect(lambda x: on_click(console="опускаем вниз",
                                                            label=menu["labels"][1],
-                                                           label_text="Scrolled",
+                                                           label_text="Опущено",
                                                            callback=scroll_page_down(browser, int(friends_value[0]))
                                                            ))
         # get friends
-        menu["btns"][2].clicked.connect(lambda x: on_click(console="get friends",
+        menu["btns"][2].clicked.connect(lambda x: on_click(console="получить боксы",
                                                            label=menu["labels"][2],
-                                                           label_text="Done",
+                                                           label_text="ПОЛУЧЕНО!",
                                                            callback=get_friends(browser, int(friends_value[0])),
                                                            obj=friends_box,
                                                            ))
         # get value from Qline
-        menu["btns"][3].clicked.connect(lambda x: on_click(console="Your Choice is: ",
+        menu["btns"][3].clicked.connect(lambda x: on_click(console="Ваш выбор: ",
                                                            callback=GUIRepository.input_value(label=menu["labels"][3],
                                                                                               obj=friend_id
                                                                                               ),
                                                            label=menu["labels"][3],
-                                                           label_text="Your choice is: ",
+                                                           label_text="Ваш выбор: ",
                                                            callback_set=True,
                                                            ))
         # Choose a friend
-        menu["btns"][4].clicked.connect(lambda x: on_click(console=f"Your friend's name is: ",
+        menu["btns"][4].clicked.connect(lambda x: on_click(console=f"Имя вашего друга: ",
                                                            callback=choose_friend(browser,
                                                                                   friends_box['callback'],
                                                                                   friend_id[0]),
@@ -247,19 +247,19 @@ class VkFriendsWindow:
     @staticmethod
     def make_btns(window):
         btn_get_count_friends = QPushButton(window)
-        btn_get_count_friends.setText("get count")
+        btn_get_count_friends.setText("получить кол-во")
         
         btn_scroll_page_down = QPushButton(window)
-        btn_scroll_page_down.setText("page down")
+        btn_scroll_page_down.setText("опустить страницу")
         
         btn_get_friends = QPushButton(window)
-        btn_get_friends.setText("get friends")
+        btn_get_friends.setText("получить боксы")
         
         btn_choose_friend_id = QPushButton(window)
-        btn_choose_friend_id.setText("choose friend id")
+        btn_choose_friend_id.setText("подтвердить id")
         
         btn_choose_friend = QPushButton(window)
-        btn_choose_friend.setText("goto friend")
+        btn_choose_friend.setText("перейти к другу")
         
         y_pos = 0
         btns = [btn_get_count_friends, btn_scroll_page_down, btn_get_friends, btn_choose_friend_id, btn_choose_friend]
@@ -268,24 +268,25 @@ class VkFriendsWindow:
                 y_pos += 70
             else:
                 y_pos += 40
-            btn.move(512, y_pos)
-            btn.setStyleSheet("background-color: #09343F; height: 80px; width: 200px;")
+            btn.move(300, y_pos)
+            btn.setFixedSize(140, 40)
+            btn.setStyleSheet("background-color: #003827;")
         return btns
     
     @staticmethod
     def make_labels(window):
         lbl_get_count_friends = QLabel(window)
-        lbl_get_count_friends.setText("Count: ")
+        lbl_get_count_friends.setText("Кол-во: ")
         
         lbl_scroll_page_down = QLabel(window)
-        lbl_scroll_page_down.setText("Scroll: ")
+        lbl_scroll_page_down.setText("Опустить: ")
         
         lbl_get_friends = QLabel(window)
-        lbl_get_friends.setText("Friends: ")
+        lbl_get_friends.setText("Друзья: ")
         
         lbl_choose_friend_id = ClickableLineEdit(window)
         lbl_choose_friend_id.clicked.connect(lambda: lbl_choose_friend_id.setText(""))
-        lbl_choose_friend_id.setText("Choose id")
+        lbl_choose_friend_id.setText("Выбрать id")
         
         lbl_choose_friend = QLabel(window)
         lbl_choose_friend.setText("")

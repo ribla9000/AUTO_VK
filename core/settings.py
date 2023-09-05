@@ -24,8 +24,9 @@ def get_options(profile: str = "Profile 1", proxy: Union[bool, str] = False):
     options.add_argument(f'user-data-dir={pathlib.Path().absolute()}\\{PROFILE_DIR}')
     options.add_argument(f'--profile-directory={_profile}')
     if isinstance(proxy, str):
-        proxy_host = set_proxy(ip=input("Input IP: "), port=int(input("Input PORT: ")))
-        options.add_argument(f"--proxy-server={proxy_host['ip']}:{proxy_host['port']}")
+        # proxy_host = set_proxy(ip=input("Input IP: "), port=int(input("Input PORT: ")))
+        # options.add_argument(f"--proxy-server={proxy_host['ip']}:{proxy_host['port']}")
+        options.add_argument(f"--proxy-server=\"{proxy}\"")
     return options
 
 

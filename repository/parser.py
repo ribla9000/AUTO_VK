@@ -92,8 +92,11 @@ class VKRepository:
         submit_btn = browser.find_element(By.XPATH,"/html/body/div[10]/div/div/div[2]/div[2]/div[3]/div/div[1]/form/button")
         submit_btn.click()
         time.sleep(2)
-        login_wid_password = browser.find_element(By.XPATH, "/html/body/div[1]/div/div/div/div/div[1]/div[2]/div/div/div/form/div[4]/div/button[2]")
-        login_wid_password.click()
+        try:
+            login_wid_password = browser.find_element(By.XPATH, "/html/body/div[1]/div/div/div/div/div[1]/div[2]/div/div/div/form/div[4]/div/button[2]")
+            login_wid_password.click()
+        except:
+            pass
         time.sleep(2)
         password_bar = browser.find_element(By.XPATH, "/html/body/div[1]/div/div/div/div/div[1]/div[2]/div/div/div/form/div[1]/div[3]/div[1]/div/input")
         for j in password:
