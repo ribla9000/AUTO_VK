@@ -215,7 +215,7 @@ class VkFriendsWindow:
         menu["btns"][1].clicked.connect(lambda x: on_click(console="опускаем вниз",
                                                            label=menu["labels"][1],
                                                            label_text="Опущено",
-                                                           callback=scroll_page_down(browser, int(friends_value[0]))
+                                                           callback=scroll_page_down(browser, int(friends_value[0].replace(" ", "")))
                                                            ))
         # get friends
         menu["btns"][2].clicked.connect(lambda x: on_click(console="получить боксы",
